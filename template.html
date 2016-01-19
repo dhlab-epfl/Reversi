@@ -1,0 +1,205 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+
+        
+
+
+        #sidebar{
+            background-color: #8B8E8F;
+        }
+
+        #sidebar .container{
+            /*margin: 20px;*/
+            padding: 20px;
+        }
+
+
+        .step{
+            margin-top: 50px;
+            /*text-align: center;
+            font-size: 150%;
+            padding: 2% 2% 2% 2%;*/
+        }
+
+        .overlay {
+            float: left;
+            width: 250px;
+            margin: 1em 0em 0em 1em;
+        }
+
+      
+        </style>
+        <title>Reversi</title>
+        <!-- <link rel="stylesheet" href="css/style.css"> -->
+        <!-- <link rel="author" href="humans.txt"> -->
+        <link rel="stylesheet" type="text/css" href="/semantic/dist/semantic.min.css">
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+        <script src="semantic/dist/semantic.min.js"></script>
+		<script src="main2.js"></script>
+
+    </head>
+
+    <body>
+    
+    	<div id='sidebar' class="ui left sidebar visible">
+
+            <div class="ui container">
+                
+                <div class="ui segment step" id="step1">
+                    <h3 class="ui header">1) Load data</h3>
+                    <p class="ui">Choose an example</p>
+                    <p>
+                        <div class="ui buttons tiny">
+                            <button class="ui button" id='example_1'>Ex. 1</button>
+                        </div>
+                    </p>
+                    <p class="ui">or import you data</p>
+                    <p>
+                        <div class="tiny ui labeled icon button" id="divUpload1">
+                            <i class="upload icon"></i>
+                            Import&nbsp;relations&nbsp;by&nbsp;CSV
+                        </div>
+                        <input type="file" id="new-file1" style="display: none">
+                    </p>
+                    <p>
+                        <div class="tiny ui labeled icon button" id="divUpload2">
+                            <i class="upload icon"></i>
+                            Import&nbsp;classes&nbsp;by&nbsp;CSV&nbsp;<sup>*</sup>
+                        </div>
+                        <input type="file" id="new-file2" style="display: none">
+                    </p>
+                </div> <!--FIN step1 -->
+                    
+                <div class="ui segment step" id="step2">
+                    <h3 class="ui header">2) Organize disposition</h3>
+                    <p class="ui">Select your element form</p>
+                    <p>
+                        <div class="ui buttons tiny">
+                            <button class="ui button" id='hexagon'><i class="cubes icon"></i></button>
+                            <button class="ui button" id='square'><i class="circle icon"></i></button>
+                            <button class="ui button" id='line'><i class="ellipsis horizontal icon"></i></button>
+                        </div>
+                    </p>
+                    <p class="ui">Type grid size</p>
+                    <p>
+                        <div class="ui input mini">
+                          <input type="text" id='size' />
+                        </div>
+                    </p>
+                    <p class="ui">Select initial disposition</p>
+                    <p>
+                        <div class="ui buttons tiny">
+                            <button class="ui button" id='inline'><i class="circle icon"></i></button>
+                            <button class="ui button" id='center'><i class="circle icon"></i></button>
+                            <button class="ui button" id='border'><i class="circle horizontal icon"></i></button>
+                        </div>
+                    </p>
+                    <p>
+                        <div class="ui checkbox">
+                            <input type="checkbox" name="random" id='random'>
+                            <label>Random</label>
+                        </div>
+                    </p>
+                </div> <!--FIN step2 -->
+
+                <div class="ui segment step" id="step3">
+                    <h3 class="ui header">3) Create disposition</h3>
+
+                    <p>
+                        <button class="ui primary button tiny" id='cast'>Cast disposition</button>
+                    </p> 
+                </div> <!--FIN step3 -->
+
+                <div class="step">
+                    <p class="ui"><sup>*</sup> Optional data</p>
+                </div>
+
+            </div> <!--FIN container -->
+
+        </div> <!--FIN sidebar -->
+
+
+
+
+
+    	<div class="pusher">
+
+            <div class="ui container">
+                
+            </div>
+
+            <div class="overlay" style="">
+              <div class="ui labeled icon vertical menu">
+                <a class="item">
+                    <h3 class="ui header">Toolbox</h3>
+                </a>
+                <a class="item">
+                    <p>Algorithms</p>
+                    
+                        <div class="ui buttons tiny">
+                            <button class="ui button">1</button>
+                            <button class="ui button">2</button>
+                        </div>
+                    
+                </a>
+                <a class="item">
+                    <p>Manipulation</p>
+                    <p>
+                        <div class="ui buttons tiny">
+                            <button class="ui button">Stick an element in</button>
+                        </div>
+                    </p>
+
+                    <p>
+                        <div class="ui buttons tiny">
+                            <button class="ui button">Swap two elements</button>
+                        </div>
+                    </p>
+                </a>
+                <a class="item">
+                    <p>Color</p>
+                    <div class="ui buttons tiny">
+                        <button class="ui button">Blue</button>
+                        <button class="ui button">Green</button>
+                        <button class="ui button">Red</button>
+                    </div>
+                </a>
+
+                <a class="item">
+                    <p>Temperature</p>
+                    <input id="temperature" type="range" min="0" max="1" step="0.01" value="0" style="width: 80%;">
+                </a>
+                <a class="item">
+
+                    <p>Controls</p>
+                    <p>
+                        <div class="tiny ui buttons">
+                            <button class="ui labeled icon button">
+                              <i class="pause icon"></i>
+                              Pause
+                            </button>
+                            <div class="or" data-text=""></div>
+                            <button class="ui right labeled primary icon button">
+                              <i class="play icon"></i>
+                              Play
+                            </button>
+                        </div>
+                    </p>
+
+                </a>
+              </div>
+            </div>
+
+        </div>
+
+
+
+    </body>
+
+</html>
